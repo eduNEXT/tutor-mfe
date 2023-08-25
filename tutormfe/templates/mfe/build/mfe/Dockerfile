@@ -65,6 +65,8 @@ ENV PUBLIC_PATH='/{{ app["name"] }}/'
 # So we point to a relative url that will be a proxy for the LMS.
 ENV MFE_CONFIG_API_URL=/api/mfe_config/v1
 ARG ENABLE_NEW_RELIC=false
+{{ patch("mfe-dockerfile-pre-npm-build") }}
+{{ patch("mfe-dockerfile-pre-npm-build-{}".format(app.name)) }}
 
 ######## {{ app["name"] }} (dev)
 FROM {{ app["name"] }}-common AS {{ app["name"] }}-dev
