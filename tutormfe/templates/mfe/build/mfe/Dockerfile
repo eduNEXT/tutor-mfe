@@ -84,3 +84,5 @@ COPY --from={{ app["name"] }} /openedx/app/dist /openedx/dist/{{ app["name"] }}
 
 # Copy caddy config file
 COPY ./Caddyfile /etc/caddy/Caddyfile
+
+{{ patch("mfe-dockerfile-production-final") }}
